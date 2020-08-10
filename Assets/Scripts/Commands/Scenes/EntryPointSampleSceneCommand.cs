@@ -14,6 +14,14 @@ public class EntryPointSampleSceneCommand : ICommand
     {
         // Load saved settings
         _controller.LoadGameData();
+
+        // Buy a ticket
+        var buyTicket = new BuyTicketCommand();
+        buyTicket.Execute();
+
+        // Present a ticket
+        var presentTicket = new PresentTicketCommand();
+        presentTicket.Execute();
     }
 
     public void Undo()
