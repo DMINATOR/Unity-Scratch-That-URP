@@ -149,9 +149,13 @@ public class GameController : MonoBehaviour, ISaveGame
 
     private void Start()
     {
+        /*
         LoadGameData();
 
         StartGame();
+        */
+        // Controlled by entry point command
+        Locator.GameEvents.EntryPoint(this);
     }
 
     void Update()
@@ -159,8 +163,4 @@ public class GameController : MonoBehaviour, ISaveGame
         
     }
 
-    private void StartGame()
-    {
-        
-    }
 }

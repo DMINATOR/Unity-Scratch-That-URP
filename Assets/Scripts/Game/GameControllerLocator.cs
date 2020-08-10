@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameControllerLocator : MonoBehaviour
 {
+    [Header("Prefabs")]
+    [Tooltip("Events that are declared and controlled by game controller")]
+    public SampleSceneGameControllerEvents GameEvents;
+
     [Tooltip("Contains currently bought tickets")]
     public GameObject BoughtTicketsRoot;
 
