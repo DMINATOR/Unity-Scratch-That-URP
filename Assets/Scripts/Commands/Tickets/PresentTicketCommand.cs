@@ -6,7 +6,7 @@ public class PresentTicketCommand : ICommand
 {
     public void Execute()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void Undo()

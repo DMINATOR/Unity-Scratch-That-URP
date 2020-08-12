@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayingAreaWinPrizeLocator : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayingAreaWinPrizeLocator : MonoBehaviour
     public GameObject GameLayer;
 
     [Tooltip("Text on a game layer")]
-    public TextMesh GameLayerText;
+    public TextMeshPro GameLayerText;
 
     [Tooltip("Area that will be scratched off")]
     public GameObject ScratchOffLayer;

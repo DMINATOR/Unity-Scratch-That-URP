@@ -13,6 +13,9 @@ public class GameControllerLocator : MonoBehaviour
 
     [Header("Prefabs")]
 
-    [Tooltip("Prefab to create Bought tickets packs")]
-    public GameObject BoughtTicketsPackPrefab;
+    [Tooltip("Available ticket pack prefabs")]
+    public List<GameObject> TicketPacksPrefabs;
+
+    //[Tooltip("Prefab to create Bought tickets packs")]
+    //public GameObject BoughtTicketsPackPrefab;
 }

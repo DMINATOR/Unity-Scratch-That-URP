@@ -27,6 +27,9 @@ public class BoughtTicketsPack : MonoBehaviour
 
     [Header("Variables")]
 
+    [Tooltip("Unique Name of this ticket pack")]
+    public string Name;
+
     [Tooltip("Seed used for random generation")]
     public int Seed;
 

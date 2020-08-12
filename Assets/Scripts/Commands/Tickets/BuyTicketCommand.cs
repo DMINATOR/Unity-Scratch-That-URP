@@ -9,7 +9,7 @@
 
     public void Execute()
     {
-        throw new System.NotImplementedException();
+        //_instance.BoughtTicketPacks
     }
 
     public void Undo()

@@ -16,7 +16,7 @@ public class EntryPointSampleSceneCommand : ICommand
         _controller.LoadGameData();
 
         // Buy a ticket
-        var buyTicket = new BuyTicketCommand();
+        var buyTicket = new BuyTicketCommand(_controller.CurrentSaveInstance);
         buyTicket.Execute();
 
         // Present a ticket

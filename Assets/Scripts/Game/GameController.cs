@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour, ISaveGame
 {
     SaveGameData _saveData;
 
+    // Cache of ticket packs
+    public Dictionary<string, BoughtTicketsPack> _ticketPacksCache;
+
     //Not exposed
 
     [Header("Constants")]
@@ -115,13 +118,27 @@ public class GameController : MonoBehaviour, ISaveGame
 
     private void LoadLatestSaveGameData(SaveSlotInstance instance)
     {
+        // Create cache
+        if(_ticketPacksCache == null)
+        {
+            _ticketPacksCache = new Dictionary<string, BoughtTicketsPack>();
+            foreach(var ticketPackPrefab in Locator.TicketPacksPrefabs)
+            {
+                var gameObject = Instantiate(ticketPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
+                var boughtTicketsPack = gameObject.GetComponent<BoughtTicketsPack>();
+                gameObject.SetActive(false);
+
+                _ticketPacksCache[boughtTicketsPack.Name] = boughtTicketsPack;
+            }
+        }
+
+        // Get from save
         foreach(var pack in instance.BoughtTicketPacks)
         {
-            var gameObject = Instantiate(Locator.BoughtTicketsPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
-            var boughtTickets = gameObject.GetComponent<BoughtTicketsPack>();
-            boughtTickets.Init(pack);
+            var foundBoughtTicketsPack = _ticketPacksCache[pack.GameMode.Name];
+            foundBoughtTicketsPack.Init(pack);
 
-            BoughtTicketPacks.Add(boughtTickets);
+            BoughtTicketPacks.Add(foundBoughtTicketsPack);
         }
     }
 
