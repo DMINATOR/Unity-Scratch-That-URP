@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System;
+/// <summary>
 /// Entry point for sample scene, creates default ticket structure
 /// </summary>
 public class EntryPointSampleSceneCommand : ICommand
@@ -13,7 +14,20 @@ public class EntryPointSampleSceneCommand : ICommand
     public void Execute()
     {
         // Load saved settings
-        _controller.LoadGameData();
+        var loadSaveData = new LoadSaveGameCommand(SaveGameController.Instance, GameController.Instance);
+        loadSaveData.Execute();
+
+        // Create new save instance for this specific scene
+        var saveInstance = new SaveSlotInstance
+        {
+            Name = "Sample Scene Instance",
+            Created = DateTime.Now,
+            MaxBudget = 1000,
+            MoneyInTheBank = 1000,
+            Current = true
+        };
+        var createSaveInstance = new CreateNewSaveInstanceCommand(saveInstance, GameController.Instance);
+        createSaveInstance.Execute();
 
         // Buy a ticket
         var buyTicket = new BuyTicketCommand(_controller.CurrentSaveInstance);

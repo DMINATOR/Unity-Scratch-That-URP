@@ -55,12 +55,17 @@ public class GameController : MonoBehaviour, ISaveGame
 
     [Header("Save Instance")]
 
+    [Tooltip("Current Save data state")]
+    public SaveGameData SaveData;
+
     [Tooltip("Current Save Instance")]
     public SaveSlotInstance CurrentSaveInstance;
 
     public void LoadGameData()
     {
         ClearGameState();
+
+        /*
 
         Log.Instance.Info(GameController.LOG_SOURCE, $"Game Data Loading");
 
@@ -100,6 +105,8 @@ public class GameController : MonoBehaviour, ISaveGame
         LoadLatestSaveGameData(CurrentSaveInstance);
 
         Log.Instance.Info(GameController.LOG_SOURCE, $"Game Data Loaded");
+
+        */
     }
 
     public void ClearGameState()
