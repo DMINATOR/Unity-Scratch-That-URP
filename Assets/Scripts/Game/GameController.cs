@@ -6,10 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(GameControllerLocator))]
 public class GameController : MonoBehaviour, ISaveGame
 {
-    SaveGameData _saveData;
+    // SaveGameData _saveData;
 
-    // Cache of ticket packs
-    public Dictionary<string, BoughtTicketsPack> _ticketPacksCache;
+    // Cache of ticket packs available, ordered by name
+    public Dictionary<string, BoughtTicketsPack> TicketPacksCache;
 
     //Not exposed
 
@@ -125,37 +125,18 @@ public class GameController : MonoBehaviour, ISaveGame
 
     private void LoadLatestSaveGameData(SaveSlotInstance instance)
     {
-        // Create cache
-        if(_ticketPacksCache == null)
-        {
-            _ticketPacksCache = new Dictionary<string, BoughtTicketsPack>();
-            foreach(var ticketPackPrefab in Locator.TicketPacksPrefabs)
-            {
-                var gameObject = Instantiate(ticketPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
-                var boughtTicketsPack = gameObject.GetComponent<BoughtTicketsPack>();
-                gameObject.SetActive(false);
-
-                _ticketPacksCache[boughtTicketsPack.Name] = boughtTicketsPack;
-            }
-        }
-
-        // Get from save
-        foreach(var pack in instance.BoughtTicketPacks)
-        {
-            var foundBoughtTicketsPack = _ticketPacksCache[pack.GameMode.Name];
-            foundBoughtTicketsPack.Init(pack);
-
-            BoughtTicketPacks.Add(foundBoughtTicketsPack);
-        }
+       
     }
 
     public void SaveGameData()
     {
+        /*
         Log.Instance.Info(GameController.LOG_SOURCE, $"Game Data Saving");
 
         SaveGameController.Instance.Save(_saveData);
 
         Log.Instance.Info(GameController.LOG_SOURCE, $"Game Data Saved");
+        */
     }
 
     private void Awake()
@@ -169,10 +150,25 @@ public class GameController : MonoBehaviour, ISaveGame
         {
             Destroy(gameObject);
         }
+
+        // Create cache of tickets
+        CreateTicketsCache();
     }
 
     private void Start()
     {
+       
+        /*
+        // Get from save
+        foreach (var pack in instance.BoughtTicketPacks)
+        {
+            var foundBoughtTicketsPack = TicketPacksCache[pack.GameMode.Name];
+            foundBoughtTicketsPack.Init(pack);
+
+            BoughtTicketPacks.Add(foundBoughtTicketsPack);
+        }
+        */
+
         /*
         LoadGameData();
 
@@ -187,4 +183,22 @@ public class GameController : MonoBehaviour, ISaveGame
         
     }
 
+    private void CreateTicketsCache()
+    {
+        Log.Instance.Info(GameController.LOG_SOURCE, $"Creating tickets cache");
+        if (TicketPacksCache == null)
+        {
+            TicketPacksCache = new Dictionary<string, BoughtTicketsPack>();
+            foreach (var ticketPackPrefab in Locator.TicketPacksPrefabs)
+            {
+                var gameObject = Instantiate(ticketPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
+                var boughtTicketsPack = gameObject.GetComponent<BoughtTicketsPack>();
+                boughtTicketsPack.ApplySeed();
+
+                gameObject.SetActive(false);
+
+                TicketPacksCache[boughtTicketsPack.Name] = boughtTicketsPack;
+            }
+        }
+    }
 }

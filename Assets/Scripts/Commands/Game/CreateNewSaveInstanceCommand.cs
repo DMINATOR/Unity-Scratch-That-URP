@@ -21,7 +21,7 @@ public class CreateNewSaveInstanceCommand : ICommand
 
         if (_gameController.SaveData.SaveSlots == null)
         {
-            _gameController.SaveData.SaveSlots = new System.Collections.Generic.List<SaveSlotInstance>();
+            _gameController.SaveData.SaveSlots = new List<SaveSlotInstance>();
         }
 
         _gameController.SaveData.SaveSlots.Add(_saveSlotInstance);

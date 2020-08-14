@@ -40,7 +40,7 @@ public class BoughtTicket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Use awake instead
     }
 
     // Update is called once per frame

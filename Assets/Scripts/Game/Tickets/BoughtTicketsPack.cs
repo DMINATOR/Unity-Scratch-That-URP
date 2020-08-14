@@ -36,7 +36,10 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Current index of generated ticket")]
     public int CurrentTicketIndex;
 
-   
+    [Tooltip("Total Number of tickets bought from this pack")]
+    public int BoughtTickets;
+
+
     [Space]
 
 
@@ -45,7 +48,7 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Total number of tickets that will be issued")]
     public int TotalTickets;
 
-    [Tooltip("Available prizes")]
+    [Tooltip("Total number of tickets that contain prizes")]
     public BoughtTicketsWinnings[] Prizes;
 
 
@@ -70,14 +73,17 @@ public class BoughtTicketsPack : MonoBehaviour
 
     #region Unity
 
+    private void Awake()
+    {
+        ApplySeed();
+
+        //GenerateWinningTickets();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        _random = new System.Random(Seed);
-
-        Locator.Ticket.ApplySeed(Seed,CurrentTicketIndex);
-
-        GenerateWinningTickets();
+        // Use awake instead
     }
 
     // Update is called once per frame
@@ -87,6 +93,21 @@ public class BoughtTicketsPack : MonoBehaviour
     }
 
     #endregion
+
+    public void ApplySeed()
+    {
+        if( _random == null )
+        {
+            _random = new System.Random(Seed);
+
+            Locator.Ticket.ApplySeed(Seed, CurrentTicketIndex);
+        }
+    }
+
+    public void BuyTickets(int numberOfTicketsToBuy)
+    {
+        BoughtTickets = Math.Min(TotalTickets, BoughtTickets + numberOfTicketsToBuy);
+    }
 
     public void GenerateWinningTickets()
     {
@@ -138,7 +159,7 @@ public class BoughtTicketsPack : MonoBehaviour
         Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Generating winning prizes - Done");
     }
 
-    public void GenerateNextTicket()
+    public void UnveilNextTicket()
     {
         if( HasTicketsToUnveil() )
         {
@@ -185,6 +206,6 @@ public class BoughtTicketsPack : MonoBehaviour
 
     public bool HasTicketsToUnveil()
     {
-        return CurrentTicketIndex < TotalTickets;
+        return CurrentTicketIndex < BoughtTickets;
     }
 }

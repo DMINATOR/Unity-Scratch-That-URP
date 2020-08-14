@@ -313,6 +313,8 @@ MonoBehaviour:
   BoughtTicketPacks: []
   ButtonUsedSomewhere:
     InputKey: 0
+  SaveData:
+    SaveSlots: []
   CurrentSaveInstance:
     Current: 0
     Name: 
@@ -337,7 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameEvents: {fileID: 670792046}
   BoughtTicketsRoot: {fileID: 1632777924}
-  TicketPacksPrefabs: []
+  TicketPacksPrefabs:
+  - {fileID: 1181885347}
 --- !u!114 &670792046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9748e391a5207b4b921329050b8fc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1181885347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642725712053870211, guid: 64a99666ceb4f9b4991b41c5fbbc6888, type: 3}
+  m_PrefabInstance: {fileID: 1409670478150591120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1212506115
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoughtTicketsPackPrefab Prototype
       objectReference: {fileID: 0}
+    - target: {fileID: 7642725712053870211, guid: 64a99666ceb4f9b4991b41c5fbbc6888, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a99666ceb4f9b4991b41c5fbbc6888, type: 3}
 --- !u!4 &1409670478150591121 stripped
@@ -812,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 4948796134340191363, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: m_Name
       value: BoughtTicketsPackPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948796134340191363, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}

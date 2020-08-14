@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 /// <summary>
 /// Entry point for sample scene, creates default ticket structure
 /// </summary>
@@ -13,6 +14,8 @@ public class EntryPointSampleSceneCommand : ICommand
 
     public void Execute()
     {
+        var ticketsPack = GameController.Instance.TicketPacksCache.Values.First();
+
         // Load saved settings
         var loadSaveData = new LoadSaveGameCommand(SaveGameController.Instance, GameController.Instance);
         loadSaveData.Execute();
@@ -30,11 +33,11 @@ public class EntryPointSampleSceneCommand : ICommand
         createSaveInstance.Execute();
 
         // Buy a ticket
-        var buyTicket = new BuyTicketCommand(_controller.CurrentSaveInstance);
+        var buyTicket = new BuyTicketCommand(GameController.Instance, ticketsPack, 10); // Buy 10 tickets of the first prefab
         buyTicket.Execute();
 
         // Present a ticket
-        var presentTicket = new PresentTicketCommand();
+        var presentTicket = new UnveilTicketCommand(ticketsPack);
         presentTicket.Execute();
     }
 
