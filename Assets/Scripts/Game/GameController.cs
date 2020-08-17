@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour, ISaveGame
 
     [Header("Variables")]
 
-    [Header("Status")]
+
     */
 
     [Header("Variables")]
@@ -46,11 +46,18 @@ public class GameController : MonoBehaviour, ISaveGame
     [Tooltip("Ticket packs that were bought so far")]
     public List<BoughtTicketsPack> BoughtTicketPacks;
 
+    [Header("Status")]
+
+    [Tooltip("Current ticket packet that is played")]
+    public BoughtTicketsPack CurrentTicketPack;
+
     [Header("Input")]
 
     [Tooltip("Buttons to be used somewhere")]
     [SerializeField]
     public InputButton ButtonUsedSomewhere;
+
+
 
 
     [Header("Save Instance")]
@@ -207,7 +214,7 @@ public class GameController : MonoBehaviour, ISaveGame
         StartGame();
         */
         // Controlled by entry point command
-        Locator.GameEvents.EntryPoint(this);
+        Locator.GameEvents.EntryPoint();
     }
 
     void Update()
@@ -232,6 +239,17 @@ public class GameController : MonoBehaviour, ISaveGame
                 TicketPacksCache[boughtTicketsPack.Name] = boughtTicketsPack;
             }
         }
+    }
+
+    public void SelectTicketPack(BoughtTicketsPack pack)
+    {
+        if( CurrentTicketPack != null )
+        {
+            // Hide the old pack
+            CurrentTicketPack.gameObject.SetActive(false);
+        }
+
+        CurrentTicketPack = pack;
     }
 
     public void BuyTicketPack(BoughtTicketsPack pack, int ticketsToBuy)

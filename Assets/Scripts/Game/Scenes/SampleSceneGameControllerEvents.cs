@@ -16,9 +16,15 @@ public class SampleSceneGameControllerEvents : MonoBehaviour
         
     }
 
-    public void EntryPoint(GameController controller)
+    public void EntryPoint()
     {
-        var command = new EntryPointSampleSceneCommand(controller);
+        var command = new EntryPointSampleSceneCommand(GameController.Instance);
+        command.Execute();
+    }
+
+    public void UnveilNextTicket()
+    {
+        var command = new UnveilTicketCommand(GameController.Instance.CurrentTicketPack);
         command.Execute();
     }
 }

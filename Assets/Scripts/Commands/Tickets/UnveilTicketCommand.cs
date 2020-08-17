@@ -16,6 +16,12 @@ public class UnveilTicketCommand : ICommand
 
     public void Execute()
     {
+        if( !_pack.gameObject.activeSelf)
+        {
+            // Show if not shown
+            _pack.gameObject.SetActive(true);
+        }
+
         _pack.UnveilNextTicket();
     }
 

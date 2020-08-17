@@ -32,6 +32,10 @@ public class EntryPointSampleSceneCommand : ICommand
         var createSaveInstance = new CreateNewSaveInstanceCommand(saveInstance, GameController.Instance);
         createSaveInstance.Execute();
 
+        // Select this ticket pack as active
+        var selectTicketPack = new SelectTicketPackCommand(GameController.Instance, ticketsPack);
+        selectTicketPack.Execute();
+
         // Buy a ticket
         var buyTicket = new BuyTicketCommand(GameController.Instance, ticketsPack, 10); // Buy 10 tickets of the first prefab
         buyTicket.Execute();
