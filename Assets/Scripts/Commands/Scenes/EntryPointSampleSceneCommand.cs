@@ -17,7 +17,7 @@ public class EntryPointSampleSceneCommand : ICommand
         var ticketsPack = GameController.Instance.TicketPacksCache.Values.First();
 
         // Load saved settings
-        var loadSaveData = new LoadSaveGameCommand(SaveGameController.Instance, GameController.Instance);
+        var loadSaveData = new LoadSaveGameCommand(GameController.Instance);
         loadSaveData.Execute();
 
         // Create new save instance for this specific scene

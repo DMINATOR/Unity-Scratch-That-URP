@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(GameControllerLocator))]
 public class GameController : MonoBehaviour, ISaveGame
 {
-    // SaveGameData _saveData;
+    SaveGameData _saveData;
 
     // Cache of ticket packs available, ordered by name
     public Dictionary<string, BoughtTicketsPack> TicketPacksCache;
@@ -55,8 +55,8 @@ public class GameController : MonoBehaviour, ISaveGame
 
     [Header("Save Instance")]
 
-    [Tooltip("Current Save data state")]
-    public SaveGameData SaveData;
+    //[Tooltip("Current Save data state")]
+    //public SaveGameData SaveData;
 
     [Tooltip("Current Save Instance")]
     public SaveSlotInstance CurrentSaveInstance;
@@ -64,6 +64,26 @@ public class GameController : MonoBehaviour, ISaveGame
     public void LoadGameData()
     {
         ClearGameState();
+
+        Log.Instance.Info(LOG_SOURCE, $"Game Data Loading");
+
+        // Load save data to game controller
+        _saveData = SaveGameController.Instance.Load();//_saveGameController.Load();
+
+        if (_saveData != null)
+        {
+            // Save data already exists, pick the current save instance by default
+            CurrentSaveInstance = _saveData.SaveSlots?.Where(x => x.Current == true).SingleOrDefault();
+            Log.Instance.Info(LOG_SOURCE, $"Game Data Loaded from {CurrentSaveInstance}");
+        }
+        else
+        {
+            // First load, no save game data, create one
+            Log.Instance.Info(LOG_SOURCE, $"Game Data First time creation");
+            _saveData = new SaveGameData();
+        }
+
+        Log.Instance.Info(LOG_SOURCE, $"Game Data Loaded");
 
         /*
 
@@ -107,6 +127,18 @@ public class GameController : MonoBehaviour, ISaveGame
         Log.Instance.Info(GameController.LOG_SOURCE, $"Game Data Loaded");
 
         */
+    }
+
+    public void CreateNewSaveGameInstance(SaveSlotInstance saveSlotInstance)
+    {
+        CurrentSaveInstance = saveSlotInstance;
+
+        if (_saveData.SaveSlots == null)
+        {
+            _saveData.SaveSlots = new List<SaveSlotInstance>();
+        }
+
+        _saveData.SaveSlots.Add(saveSlotInstance);
     }
 
     public void ClearGameState()
@@ -200,5 +232,26 @@ public class GameController : MonoBehaviour, ISaveGame
                 TicketPacksCache[boughtTicketsPack.Name] = boughtTicketsPack;
             }
         }
+    }
+
+    public void BuyTicketPack(BoughtTicketsPack pack, int ticketsToBuy)
+    {
+        Log.Instance.Info(LOG_SOURCE, $"Buying {ticketsToBuy} tickets for {pack.Name}");
+
+        // Create pack if it doesn't exist
+        if (BoughtTicketPacks == null)
+        {
+            BoughtTicketPacks = new System.Collections.Generic.List<BoughtTicketsPack>();
+        }
+
+        // Find existing pack if it exists
+        if (!BoughtTicketPacks.Contains(pack))
+        {
+            // Add this pack
+            BoughtTicketPacks.Add(pack);
+        }
+
+        // Update pack and buy new tickets
+        pack.BuyTickets(ticketsToBuy);
     }
 }

@@ -17,14 +17,7 @@ public class CreateNewSaveInstanceCommand : ICommand
 
     public void Execute()
     {
-        _gameController.CurrentSaveInstance = _saveSlotInstance;
-
-        if (_gameController.SaveData.SaveSlots == null)
-        {
-            _gameController.SaveData.SaveSlots = new List<SaveSlotInstance>();
-        }
-
-        _gameController.SaveData.SaveSlots.Add(_saveSlotInstance);
+        _gameController.CreateNewSaveGameInstance(_saveSlotInstance);
     }
 
     public void Undo()
