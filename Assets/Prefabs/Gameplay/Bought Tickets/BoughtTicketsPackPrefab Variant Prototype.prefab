@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3077679066960697227, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -11.25
       objectReference: {fileID: 0}
     - target: {fileID: 3077679066960697227, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8920903087167667769, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 12.02
       objectReference: {fileID: 0}
     - target: {fileID: 8920903087167667769, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
       propertyPath: m_LocalRotation.x
@@ -313,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948796134340191363, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: m_Name
-      value: BoughtTicketsPackPrefab Prototype
+      value: BoughtTicketsPackPrefab Variant Prototype
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
