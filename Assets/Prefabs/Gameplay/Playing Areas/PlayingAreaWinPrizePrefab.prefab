@@ -314,10 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7ce876db7e09841acd22404c80939a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundLayer: {fileID: 0}
-  GameLayer: {fileID: 336191651}
+  BackgroundLayer: {fileID: 336191651}
   GameLayerText: {fileID: 1687412343}
-  ScratchOffLayer: {fileID: 0}
 --- !u!114 &1413747130072456903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +348,7 @@ GameObject:
   - component: {fileID: 8441854881782918299}
   - component: {fileID: 4949092426221973890}
   - component: {fileID: 178484688320060026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: PlayingAreaCameraTag
   m_Icon: {fileID: 0}

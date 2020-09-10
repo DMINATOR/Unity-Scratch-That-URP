@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Statistics: {fileID: 8642637963269192704}
+  TicketPlane: {fileID: 0}
   Ticket: {fileID: 2330753870897579153}
 --- !u!114 &2131423200
 MonoBehaviour:
@@ -104,8 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locator: {fileID: 2131423201}
+  Name: 
   Seed: 0
   CurrentTicketIndex: 0
+  BoughtTickets: 0
   TotalTickets: 0
   Prizes: []
   PrizesWon:
