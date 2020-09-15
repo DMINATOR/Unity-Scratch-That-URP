@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5169487683066210370}
   m_Layer: 0
   m_Name: TicketPlane
-  m_TagString: Untagged
+  m_TagString: GameTicketPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &95826586651725814
+--- !u!1001 &873556326829252593
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game 1 - PlayingAreaWinPrizePrefab Win 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7769761561614194463, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 6109a9a77eb37ca4b9b080603d6f4e60, type: 2}
     - target: {fileID: 8920903087167667769, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.5
@@ -169,10 +173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
---- !u!114 &4447264972026591148 stripped
+--- !u!114 &3529930343282337707 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4387537551683270746, guid: a2015a4dd6c84054fb655f46bdcc3581, type: 3}
-  m_PrefabInstance: {fileID: 95826586651725814}
+  m_PrefabInstance: {fileID: 873556326829252593}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -262,15 +266,15 @@ PrefabInstance:
     - target: {fileID: 2248350398914267608, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: PlayingAreas.Array.data[0]
       value: 
-      objectReference: {fileID: 4447264972026591148}
+      objectReference: {fileID: 3529930343282337707}
     - target: {fileID: 2248350398914267608, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: PlayingAreas.Array.data[1]
       value: 
-      objectReference: {fileID: 3065556577354988156}
+      objectReference: {fileID: 1945003226080458508}
     - target: {fileID: 2248350398914267608, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: PlayingAreas.Array.data[2]
       value: 
-      objectReference: {fileID: 1438928444864505334}
+      objectReference: {fileID: 6740031313731868210}
     - target: {fileID: 4948796134340191362, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -321,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948796134340191363, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
@@ -330,75 +334,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 643968312268600980, guid: e253c3cb5e9a6cc4c93b637a523677a1, type: 3}
   m_PrefabInstance: {fileID: 3368073872231070208}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4863766528060678742
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2761296541858385044}
-    m_Modifications:
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 39.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061258784534043354, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-      propertyPath: m_Name
-      value: Game 2 - PlayingAreaWinPrizePrefab Win 200
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
---- !u!114 &3065556577354988156 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7634897230346246186, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
-  m_PrefabInstance: {fileID: 4863766528060678742}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1ce88c9e32c4546ac58656108c9119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &9106495299829330974
+--- !u!1001 &3463754324947142618
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -449,16 +385,92 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4226850492060729005, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 720cdc58a2ce91342b498bc133362848, type: 2}
     - target: {fileID: 7319166428159480600, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
       propertyPath: m_Name
       value: Game 3 - PlayingAreaWinPrizePrefab Win 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
---- !u!114 &1438928444864505334 stripped
+--- !u!114 &6740031313731868210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7897304878170362344, guid: c3b4d5fcce90f294fb44537cb6d8fefb, type: 3}
-  m_PrefabInstance: {fileID: 9106495299829330974}
+  m_PrefabInstance: {fileID: 3463754324947142618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1ce88c9e32c4546ac58656108c9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8289597172650176294
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2761296541858385044}
+    m_Modifications:
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376110564038286921, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522894153849108335, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: f40252a32222c45449cb2e8944748c9d, type: 2}
+    - target: {fileID: 7061258784534043354, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+      propertyPath: m_Name
+      value: Game 2 - PlayingAreaWinPrizePrefab Win 200
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+--- !u!114 &1945003226080458508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7634897230346246186, guid: 7d8c1b9578a18d943af2660a08545c5e, type: 3}
+  m_PrefabInstance: {fileID: 8289597172650176294}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

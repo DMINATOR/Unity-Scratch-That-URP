@@ -23,7 +23,7 @@ public class UserInput : MonoBehaviour
             {
                 var collider = raycastHit.collider;
 
-                if (collider.tag == "GameTicket")
+                if (collider.tag == "GameTicketPlane")
                 {
                     var command = new ScratchOffTicketCommand(collider.gameObject, raycastHit);
                     command.Execute();

@@ -8,6 +8,9 @@ public class ScratchOffTicketCommand : ICommand
     private GameObject _gameObject;
     private RaycastHit _hit;
 
+    private const string MaterialMaskTextureCreated = "PrototypeTicketShader_MaskTextureCreated";
+    private const string MaterialMaskTextureSource = "PrototypeTicketShader_MaskTextureSource";
+
     public ScratchOffTicketCommand(GameObject gameObject, RaycastHit raycastHit)
     {
         _gameObject = gameObject;
@@ -23,8 +26,8 @@ public class ScratchOffTicketCommand : ICommand
             Debug.Log($"No renderer detected!");
         }
 
-        var isMaskTextureCreated = rend.material.GetFloat("TestTicketShader_MaskTextureCreated");
-        var textureToModify = (Texture2D)rend.material.GetTexture("TestTicketShader_MaskTextureSource");
+        var isMaskTextureCreated = rend.material.GetFloat(MaterialMaskTextureCreated);
+        var textureToModify = (Texture2D)rend.material.GetTexture(MaterialMaskTextureSource);
 
         if (isMaskTextureCreated != 1.0f)
         {
@@ -58,9 +61,9 @@ public class ScratchOffTicketCommand : ICommand
 
                 Debug.Log($"... created");
 
-                rend.material.SetTexture("TestTicketShader_MaskTextureSource", newTextureToModify);
+                rend.material.SetTexture(MaterialMaskTextureSource, newTextureToModify);
 
-                rend.material.SetFloat("TestTicketShader_MaskTextureCreated", 1.0f);
+                rend.material.SetFloat(MaterialMaskTextureCreated, 1.0f);
 
                 textureToModify = newTextureToModify;
             }
