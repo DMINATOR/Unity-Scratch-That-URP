@@ -37,7 +37,7 @@ public class EntryPointSampleSceneCommand : ICommand
         selectTicketPack.Execute();
 
         // Buy a ticket
-        var buyTicket = new BuyTicketCommand(GameController.Instance, ticketsPack, 10); // Buy 10 tickets of the first prefab
+        var buyTicket = new BuyTicketCommand(GameController.Instance, ticketsPack, 50); // Buy 50 tickets of the first prefab
         buyTicket.Execute();
 
         // Present a ticket

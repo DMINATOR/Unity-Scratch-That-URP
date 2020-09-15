@@ -77,7 +77,7 @@ public class BoughtTicketsPack : MonoBehaviour
     {
         ApplySeed();
 
-        //GenerateWinningTickets();
+        GenerateWinningTickets();
     }
 
     // Start is called before the first frame update
