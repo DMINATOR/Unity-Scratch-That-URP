@@ -16,19 +16,8 @@ public class UserInput : MonoBehaviour
         // Rewrite this stuff to work better 
         if (Input.GetMouseButtonDown(0))
         {
-            var rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit raycastHit;
-
-            if (Physics.Raycast(rayOrigin, out raycastHit))
-            {
-                var collider = raycastHit.collider;
-
-                if (collider.tag == "GameTicketPlane")
-                {
-                    var command = new ScratchOffTicketCommand(collider.gameObject, raycastHit);
-                    command.Execute();
-                }
-            }
+            var command = new UserLeftMouseClickCommand(Input.mousePosition);
+            command.Execute();
         }
     }
 }

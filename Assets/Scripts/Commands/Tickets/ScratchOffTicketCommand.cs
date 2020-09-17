@@ -77,7 +77,7 @@ public class ScratchOffTicketCommand : ICommand
         var colorToSet = new Color(1, 1, 1, 0);
         var colorBefore = texture.GetPixel((int)position.x, (int)position.y);
 
-        Debug.Log($"SET {(int)position.x}, {(int)position.y} {colorBefore} -> {colorToSet}");
+        Debug.Log($"SET ({texture.updateCount}) {(int)position.x}, {(int)position.y} {colorBefore} -> {colorToSet}");
 
         var colors = new Color[100 * 100];
         for (var i = 0; i < 100 * 100; i++)
@@ -89,7 +89,7 @@ public class ScratchOffTicketCommand : ICommand
         texture.Apply();
 
         var getPixel = texture.GetPixel((int)position.x, (int)position.y);
-        Debug.Log($"GET {(int)position.x}, {(int)position.y} = {getPixel}");
+        Debug.Log($"GET ({texture.updateCount}) {(int)position.x}, {(int)position.y} = {getPixel}");
     }
 
     public void Execute()
