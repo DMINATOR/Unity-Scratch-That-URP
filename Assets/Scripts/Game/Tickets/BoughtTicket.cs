@@ -34,6 +34,10 @@ public class BoughtTicket : MonoBehaviour
     [Header("Status")]
 
     [ReadOnly]
+    [Tooltip("Indicates if it's currently scratching off")]
+    public bool IsScratchingOffCurrently;
+
+    [ReadOnly]
     [Tooltip("Random generator")]
     public System.Random _random;
 
@@ -120,5 +124,29 @@ public class BoughtTicket : MonoBehaviour
         PickPlayingArea();
 
         UpdatePlayingAreas(-1, 0);
+    }
+
+    internal void StartScratching()
+    {
+        if( !IsScratchingOffCurrently)
+        {
+
+        }
+    }
+
+    internal void UpdateScratchOff()
+    {
+        if( !IsScratchingOffCurrently )
+        {
+
+        }
+    }
+
+    internal void EndScratchOff()
+    {
+        if( IsScratchingOffCurrently)
+        {
+            IsScratchingOffCurrently = false;
+        }
     }
 }

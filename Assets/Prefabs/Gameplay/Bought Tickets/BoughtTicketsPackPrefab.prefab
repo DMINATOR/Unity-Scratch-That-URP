@@ -54,13 +54,14 @@ GameObject:
   - component: {fileID: 4948796134340191362}
   - component: {fileID: 2131423201}
   - component: {fileID: 2131423200}
+  - component: {fileID: 3963825439713315469}
   m_Layer: 0
   m_Name: BoughtTicketsPackPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4948796134340191362
 Transform:
   m_ObjectHideFlags: 0
@@ -90,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Statistics: {fileID: 8642637963269192704}
-  TicketPlane: {fileID: 0}
+  TicketUserInput: {fileID: 3963825439713315469}
   Ticket: {fileID: 2330753870897579153}
 --- !u!114 &2131423200
 MonoBehaviour:
@@ -114,6 +115,18 @@ MonoBehaviour:
   PrizesWon:
     list: []
     keyCollision: 0
+--- !u!114 &3963825439713315469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948796134340191363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457006c5f9483e942bfaa23d483865ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6687441443240332366
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,3 +190,4 @@ MonoBehaviour:
   WinningDetails:
     PrizeValue: 0
     PrizeCount: 0
+  IsScratchingOffCurrently: 0

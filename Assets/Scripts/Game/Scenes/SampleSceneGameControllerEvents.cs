@@ -27,10 +27,4 @@ public class SampleSceneGameControllerEvents : MonoBehaviour
         var command = new UnveilTicketCommand(GameController.Instance.CurrentTicketPack);
         command.Execute();
     }
-
-    public void ScratchOffTicket()
-    {
-        var command = new UserLeftMouseClickCommand(new Vector3(429, 305, 0));
-        command.Execute();
-    }
 }

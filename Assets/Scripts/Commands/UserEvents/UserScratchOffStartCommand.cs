@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Triggers when user clicks left mouse button
-public class UserLeftMouseClickCommand : ICommand
+public class UserScratchOffStartCommand : ICommand
 {
     Vector3 _mousePosition;
 
-    public UserLeftMouseClickCommand(Vector3 mousePosition)
+    public UserScratchOffStartCommand(Vector3 mousePosition)
     {
         _mousePosition = mousePosition;
     }

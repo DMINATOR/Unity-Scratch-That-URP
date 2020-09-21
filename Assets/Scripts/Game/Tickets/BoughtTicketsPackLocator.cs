@@ -7,8 +7,8 @@ public class BoughtTicketsPackLocator : MonoBehaviour
     [Tooltip("Gathered statistics")]
     public BoughtTicketsStatistics Statistics;
 
-    [Tooltip("Plane to use for Ticket")]
-    public GameObject TicketPlane;
+    [Tooltip("User input to apply against ticket")]
+    public TicketUserInput TicketUserInput;
 
     [Tooltip("Current ticket")]
     public BoughtTicket Ticket;
