@@ -34,8 +34,8 @@ public class BoughtTicket : MonoBehaviour
     [Header("Status")]
 
     [ReadOnly]
-    [Tooltip("Indicates if it's currently scratching off")]
-    public bool IsScratchingOffCurrently;
+    [Tooltip("Indicates if it's currently scratching off and position")]
+    public Vector3? ScratchOffPosition;
 
     [ReadOnly]
     [Tooltip("Random generator")]
@@ -126,27 +126,18 @@ public class BoughtTicket : MonoBehaviour
         UpdatePlayingAreas(-1, 0);
     }
 
-    internal void StartScratching()
+    internal void StartScratching(Vector2 mousePosition)
     {
-        if( !IsScratchingOffCurrently)
-        {
-
-        }
+        ScratchOffPosition = mousePosition;
     }
 
-    internal void UpdateScratchOff()
+    internal void UpdateScratchOff(Vector2 mousePosition)
     {
-        if( !IsScratchingOffCurrently )
-        {
-
-        }
+        ScratchOffPosition = mousePosition;
     }
 
     internal void EndScratchOff()
     {
-        if( IsScratchingOffCurrently)
-        {
-            IsScratchingOffCurrently = false;
-        }
+        ScratchOffPosition = null;
     }
 }

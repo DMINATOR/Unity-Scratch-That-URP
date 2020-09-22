@@ -23,12 +23,17 @@ public class UserScratchOffStartCommand : ICommand
 
             if (collider.tag == "GameTicketPlane")
             {
+                Debug.Log($"Click {Input.mousePosition}");
+                Debug.DrawRay(rayOrigin.origin, rayOrigin.direction * 1000, Color.green, 10);
+                /*
                 // Show ray when triggered
                 Debug.Log($"Click {Input.mousePosition}");
                 Debug.DrawRay(rayOrigin.origin, rayOrigin.direction * 1000, Color.green, 10);
 
                 var command = new ScratchOffTicketCommand(collider.gameObject, raycastHit);
                 command.Execute();
+
+    */
             }
         }
     }

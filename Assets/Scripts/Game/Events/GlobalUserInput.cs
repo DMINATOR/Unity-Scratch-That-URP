@@ -13,6 +13,7 @@ public class GlobalUserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         // TODO - Rewrite to use actual keys
 
         if (Input.GetMouseButtonDown(0))
@@ -27,5 +28,6 @@ public class GlobalUserInput : MonoBehaviour
             var commandUp = new UserScratchOffEndCommand();
             commandUp.Execute();
         }
+        */
     }
 }
