@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class UserScratchOffEndCommand : ICommand
 {
+    BoughtTicketScratchOffSurface _surface;
+
+    public UserScratchOffEndCommand(BoughtTicketScratchOffSurface surface)
+    {
+        _surface = surface;
+    }
+
     public void Execute()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Stop - UserScratchOff {Input.mousePosition}");
+        _surface.StopScratching();
     }
 
     public void Undo()

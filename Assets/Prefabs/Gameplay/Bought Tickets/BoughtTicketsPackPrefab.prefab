@@ -93,6 +93,7 @@ MonoBehaviour:
   Statistics: {fileID: 8642637963269192704}
   TicketUserInput: {fileID: 3963825439713315469}
   Ticket: {fileID: 2330753870897579153}
+  ScratchOffSurface: {fileID: 9093133419280603919}
 --- !u!114 &2131423200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +302,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f7ddc1a26849d49a8fb3e709ab1633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Locator: {fileID: 0}

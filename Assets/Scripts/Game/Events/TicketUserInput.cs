@@ -19,14 +19,14 @@ public class TicketUserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( Locator.Ticket.ScratchOffPosition.HasValue )
+        if( Locator.ScratchOffSurface.IsScratchingStarted)
         {
             // Currently scratching
 
             if (Input.GetMouseButtonUp(0))
             {
                 // Button removed
-                var commandUp = new UserScratchOffEndCommand();
+                var commandUp = new UserScratchOffEndCommand(Locator.ScratchOffSurface);
                 commandUp.Execute();
             }
             else
@@ -34,9 +34,9 @@ public class TicketUserInput : MonoBehaviour
                 // Moving mouse
                 var mousePosition = Input.mousePosition;
 
-                if (mousePosition != Locator.Ticket.ScratchOffPosition.Value)
+                if (mousePosition != Locator.ScratchOffSurface.ScratchOffMousePosition.Value)
                 {
-                    var commandUp = new UserScratchOffUpdateCommand(Input.mousePosition);
+                    var commandUp = new UserScratchOffUpdateCommand(Locator.ScratchOffSurface, Input.mousePosition);
                     commandUp.Execute();
                 }
             }

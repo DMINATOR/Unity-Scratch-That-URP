@@ -12,4 +12,7 @@ public class BoughtTicketsPackLocator : MonoBehaviour
 
     [Tooltip("Current ticket")]
     public BoughtTicket Ticket;
+
+    [Tooltip("Scratch off surface")]
+    public BoughtTicketScratchOffSurface ScratchOffSurface;
 }
