@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4948796134340191362
 Transform:
   m_ObjectHideFlags: 0
@@ -302,4 +302,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f7ddc1a26849d49a8fb3e709ab1633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locator: {fileID: 0}
+  Strength: 0
+  ScratchingTipTexture: {fileID: 2800000, guid: 5591c69da09d68d4983583849bc3a259, type: 3}
