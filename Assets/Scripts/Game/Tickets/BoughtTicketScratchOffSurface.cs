@@ -192,21 +192,22 @@ public class BoughtTicketScratchOffSurface : MonoBehaviour
                 //var angleRad = Vector2.Angle(start, end);
                 //var angleDeg = angleRad * Mathf.Rad2Deg;
 
-                int textureSize = 128;
+                //int textureSize = 128;
 
-                var pointA = new Vector2(0, -128);
-                var pointB = new Vector2(0, -128);
+                //var pointA = new Vector2(0, -128);
+                //var pointB = new Vector2(0, -128);
 
-                // Rotate [x (texture.width),y (0)]
-                var pointX = textureSize * Mathf.Cos(angleRad + 90);
-                var pointY = textureSize * Mathf.Sin(angleRad + 90);
+                //// Rotate [x (texture.width),y (0)]
+                //var pointX = textureSize * Mathf.Cos(angleRad + 90);
+                //var pointY = textureSize * Mathf.Sin(angleRad + 90);
 
-                var pointA = start + new Vector2(pointX, pointY);
-                var pointB = start + new Vector2(-pointX, -pointY);
+                //var pointA = start + new Vector2(pointX, pointY);
+                //var pointB = start + new Vector2(-pointX, -pointY);
 
-                Debug.Log($"Angle [{start}] -> [{end}] = ({angleRad}) = ({angleDeg})");
-                Debug.Log($"A [{pointA}] -> {pointX} {pointY}");
-                Debug.Log($"B [{pointB}]");
+                //Debug.Log($"Angle [{start}] -> [{end}] = ({angleRad}) = ({angleDeg})");
+                //Debug.Log($"A [{pointA}] -> {pointX} {pointY}");
+                //Debug.Log($"B [{pointB}]");
+
                 /*
                 int textureSize = 128;
                 var distanceX = (end.x - start.x);
