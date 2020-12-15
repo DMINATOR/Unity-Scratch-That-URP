@@ -148,21 +148,116 @@ public class BoughtTicketScratchOffSurface : MonoBehaviour
         return textureToModify;
     }
 
+    /// <summary>
+    /// http://math.dmitrikuznetsov.com/?PzE9XHBpPTMuMTQxNTkyNjUzNTgmNT1cYWxwaGFfe2RlZ309XGZyYWN7MTgwfXtccGl9XGFscGhhJjE1PUFfeD0xJjE3PUFfeT0xJjE5PUJfeD0zJjIxPUJfeT0yJjIzPVxEZWx0YV94PUJfeC1BX3gmMjU9XERlbHRhX3k9Ql95LUFfeSYyNz1cYWxwaGE9XGF0YW5cbGVmdChcZnJhY3tcRGVsdGFfeX17XERlbHRhX3h9XHJpZ2h0KQ==
+    /// </summary>
+    /// <param name="a">Vector 1</param>
+    /// <param name="b">Vector 2</param>
+    /// <returns>Returns angle between points in degress</returns>
+    public static float AngleBetweenInDegrees(Vector2 a, Vector2 b)
+    {
+        var angleRad = Mathf.Atan2(b.y - a.y, b.x - a.x);
+        return angleRad * Mathf.Rad2Deg;
+    }
+
+    /// <summary>
+    /// http://math.dmitrikuznetsov.com/?PzE9XHBpPTMuMTQxNTkyNjUzNTgmMz1cYWxwaGE9XGZyYWN7XHBpfXsyfSY1PVxhbHBoYV97ZGVnfT1cZnJhY3sxODB9e1xwaX1cYWxwaGEmNz1wX3g9XGxlZnQoeFxjZG90XGNvc1xhbHBoYVxyaWdodCktXGxlZnQoeVxjZG90XHNpblxhbHBoYVxyaWdodCkmOT1wX3k9XGxlZnQoeVxjZG90XGNvc1xhbHBoYVxyaWdodCkrXGxlZnQoeFxjZG90XHNpblxhbHBoYVxyaWdodCkmMTE9eD0xMjgmMTM9eT0w
+    /// </summary>
+    /// <param name="vector">Vector to rotate</param>
+    /// <param name="angleInDeg">Angle in degrees</param>
+    /// <returns></returns>
+    public static Vector2 RotatePoint(Vector2 vector, float angleInDeg)
+    {
+        var angleInRad = angleInDeg * Mathf.Deg2Rad;
+        var pointX = vector.x * Mathf.Cos(angleInRad) - vector.y * Mathf.Sin(angleInRad);
+        var pointY = vector.y * Mathf.Cos(angleInRad) + vector.x * Mathf.Sin(angleInRad);
+
+        return new Vector2(pointX, pointY);
+    }
+
     private void WritePixels(float strength, Vector2? positionStart, Vector2? positionEnd, Texture2D texture)
     {
         if( positionStart.HasValue)
         {
             var start = positionStart.Value;
             var end = positionEnd.Value;
+            var distance = Mathf.Abs(Vector2.Distance(start, end));
+
+
+            if ( distance > 0 )
+            {
+                var angle = AngleBetweenInDegrees(end, start);
+                //var angleRad = Mathf.Atan2(end.y - start.y , end.x - start.x);
+                //var angleDeg = angleRad * Mathf.Rad2Deg;
+                //var angleRad = Vector2.Angle(start, end);
+                //var angleDeg = angleRad * Mathf.Rad2Deg;
+
+                int textureSize = 128;
+
+                var pointA = new Vector2(0, -128);
+                var pointB = new Vector2(0, -128);
+
+                // Rotate [x (texture.width),y (0)]
+                var pointX = textureSize * Mathf.Cos(angleRad + 90);
+                var pointY = textureSize * Mathf.Sin(angleRad + 90);
+
+                var pointA = start + new Vector2(pointX, pointY);
+                var pointB = start + new Vector2(-pointX, -pointY);
+
+                Debug.Log($"Angle [{start}] -> [{end}] = ({angleRad}) = ({angleDeg})");
+                Debug.Log($"A [{pointA}] -> {pointX} {pointY}");
+                Debug.Log($"B [{pointB}]");
+                /*
+                int textureSize = 128;
+                var distanceX = (end.x - start.x);
+                var distanceY = (end.y - start.y);
+
+                var scaleX = distanceX / textureSize;
+                var scaleY = distanceY / textureSize;
+
+                var targetColors = ScratchingTipTexture.GetPixels(0, 0, textureSize, textureSize);
+
+                for (var x = 0; x < distanceX; x++)
+                {
+                    var scaledX = x * scaleX;
+
+                    for (var y = 0; y < distanceY; y++)
+                    {
+                        var scaledY = y * scaleY;
+
+                        var sourceColor = texture.GetPixel((int)(start.x + scaledX), (int)(start.y + scaledY));
+                        var targetColor = targetColors[x + y * textureSize];
+
+                        var newAlpha = 1.0f - targetColor.a;
+
+                        texture.SetPixel((int)(start.x + scaledX), (int)(start.y + scaledY), new Color(sourceColor.r, sourceColor.g, sourceColor.b, newAlpha));
+                    }
+                }
+                */
+
+                //for (var x = 0; x < textureSize; x++)
+                //{
+                //    var scaledX = x * scaleX;
+
+                //    for(var y = 0; y < textureSize; y++)
+                //    {
+                //        var scaledY = y * scaleY;
+
+                //        var sourceColor = texture.GetPixel( (int)(start.x + scaledX), (int)(start.y + scaledY));
+                //        var targetColor = targetColors[x + y * textureSize];
+
+                //        var newAlpha = 1.0f - targetColor.a;
+
+                //        texture.SetPixel((int)(start.x + scaledX), (int)(start.y + scaledY), new Color(sourceColor.r, sourceColor.g, sourceColor.b, newAlpha));
+                //    }
+                //}
+
+                texture.Apply();
+            }
+
+
 
             /*
-            for (var i = 0; i < 100 * 100; i++)
-            {
-                colors[i] = ScratchingTipTexture.GetPixel(;
-            }
-            */
-
-            int textureSize = 128;
 
             // get current pixels
             var sourceColors = texture.GetPixels((int)end.x, (int)end.y, textureSize, textureSize);
@@ -186,7 +281,7 @@ public class BoughtTicketScratchOffSurface : MonoBehaviour
 
             texture.SetPixels((int)end.x, (int)end.y, textureSize, textureSize, sourceColors);
             texture.Apply();
-
+            */
 
             /*
             var colorToSet = new Color(1, 1, 1, 0);
